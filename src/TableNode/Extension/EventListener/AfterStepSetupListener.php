@@ -26,7 +26,7 @@ class AfterStepSetupListener
          */
         foreach ($arguments as $id => $argument) {
             if ($argument instanceof TableNode) {
-                $arguments[$id] = new NestedTableNode($tableNode->getTable());
+                $arguments[$id] = new NestedTableNode($argument->getTable());
             }
         }
 
