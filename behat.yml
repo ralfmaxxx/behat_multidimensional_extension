@@ -1,3 +1,0 @@
-default:
-    extensions:
-         TableNode\Extension\NestedTableNodeExtension: ~

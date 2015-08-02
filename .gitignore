@@ -2,3 +2,4 @@
 bin
 features
 vendor
+behat.yml
