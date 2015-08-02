@@ -13,7 +13,7 @@ From now each TableNode object will be replaced by NestedTableNode instance, whi
 
 After installation you can describe your data with dot notation: *model.value.something*.
 ```gherkin
-Feature: As
+Feature: Something
 
     Scenario:
         When i do something:
