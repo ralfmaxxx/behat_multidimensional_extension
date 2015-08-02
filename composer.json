@@ -1,0 +1,27 @@
+{
+  "name": "ralfmaxxx/behat_multidimensional_extension",
+  "description": "It allows you to create multidimensional TableNode",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Rafał Kański",
+      "email": "rafal.kanski@schibsted.pl"
+    }
+  ],
+  "require": {
+    "behat/behat": "3.*"
+  },
+  "require-dev":{
+    "phpmd/phpmd": "2.2.*",
+    "squizlabs/php_codesniffer": "2.3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "TableNode\\Extension\\": "src/TableNode/Extension"
+    }
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+}

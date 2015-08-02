@@ -1,0 +1,16 @@
+sudo: false
+
+language: php
+
+php:
+    - 5.5
+
+before_install:
+    - composer self-update
+
+install:
+    - composer install --no-interaction
+
+script:
+    - bin/phpcs --standard=PSR1,PSR2 src
+    - bin/phpmd src text cleancode,codesize,design
