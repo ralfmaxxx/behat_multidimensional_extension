@@ -3,7 +3,9 @@
 namespace TableNode\Extension\EventListener;
 
 use Behat\Behat\EventDispatcher\Event\BeforeStepTested;
+use Behat\Gherkin\Node\TableNode;
 use TableNode\Extension\NestedTableNode;
+use ReflectionClass;
 
 class AfterStepSetupListener
 {
@@ -13,14 +15,19 @@ class AfterStepSetupListener
     public function onBefore(BeforeStepTested $event)
     {
         $step = $event->getStep();
-        $class = new \ReflectionClass($step);
+        $class = new ReflectionClass($step);
 
         $propertyValue = $class->getProperty('arguments');
         $propertyValue->setAccessible(true);
         $arguments = $propertyValue->getValue($step);
 
-        foreach ($arguments as $id => $tableNode) {
-            $arguments[$id] = new NestedTableNode($tableNode->getTable());
+        /**
+         * @var TableNode $tableNode
+         */
+        foreach ($arguments as $id => $argument) {
+            if ($argument instanceof TableNode) {
+                $arguments[$id] = new NestedTableNode($tableNode->getTable());
+            }
         }
 
         $propertyValue->setValue($step, $arguments);
