@@ -1,6 +1,6 @@
 {
   "name": "ralfmaxxx/behat_multidimensional_extension",
-  "description": "It allows you to create multidimensional TableNode",
+  "description": "It allows you to create multidimensional TableNode based on dot notation",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [

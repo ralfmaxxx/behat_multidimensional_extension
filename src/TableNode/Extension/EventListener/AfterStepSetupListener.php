@@ -24,8 +24,10 @@ class AfterStepSetupListener
         /**
          * @var TableNode $tableNode
          */
-        foreach ($arguments as $id => $tableNode) {
-            $arguments[$id] = new NestedTableNode($tableNode->getTable());
+        foreach ($arguments as $id => $argument) {
+            if ($argument instanceof TableNode) {
+                $arguments[$id] = new NestedTableNode($tableNode->getTable());
+            }
         }
 
         $propertyValue->setValue($step, $arguments);
